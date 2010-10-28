@@ -1,0 +1,8 @@
+Manifest-Version: 1
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: demolib
+Bundle-Name: SceneBuilder Demonstration Library
+Bundle-Version: 1.0.0
+Bundle-ClassPath: .,phys2d.jar
+Import-Package: org.osgi.framework, processing.core, nodebox.node, nodebox.util
+Export-Node: demolib.PhysicsNode

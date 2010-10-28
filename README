@@ -1,0 +1,12 @@
+SceneBuilder Demonstration Library
+==================================
+Demolib shows you how to create a new SceneBuilder library, including optional self libraries.
+
+You will have to change build.properties to point to your SceneBuilder libraries folder.
+This folder should contain:
+
+ * equinox.jar
+ * processing-core.jar
+ * nodebox-core.jar
+
+Demolib uses Phys2D from http://www.cokeandcode.com/phys2d/ , licensed under the zlib license.

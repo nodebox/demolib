@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Demo Library" default="dist">
+
+    <property file="build.properties"/>
+    <fail unless="lib.externals" message="File build.properties should specify lib.externals."/>
+
+    <property name="src" value="src"/>
+    <property name="lib" value="lib"/>
+    <property name="build" value="build"/>
+    <property name="dist" value="dist"/>
+
+    <path id="build.classpath">
+        <path path="${lib.externals}/nodebox-core.jar"/>
+        <path path="${lib.externals}/processing-core.jar"/>
+        <path path="${lib.externals}/equinox.jar"/>
+        <path path="${lib}/phys2d.jar"/>
+    </path>
+
+    <target name="init">
+        <mkdir dir="${build}"/>
+    </target>
+
+    <target name="compile" depends="init">
+        <javac srcdir="${src}" destdir="${build}" classpathref="build.classpath" source="1.5" target="1.5"/>
+    </target>
+
+    <target name="embed-dependencies" depends="init">
+        <copy file="${lib}/phys2d.jar" todir="${build}"/>
+    </target>
+
+    <target name="dist" depends="compile,embed-dependencies">
+        <mkdir dir="${dist}"/>
+        <jar jarfile="${dist}/demolib.jar" basedir="${build}" manifest="manifest.mf"/>
+    </target>
+
+    <target name="clean">
+        <delete dir="${build}"/>
+        <delete dir="${dist}"/>
+    </target>
+
+</project>
